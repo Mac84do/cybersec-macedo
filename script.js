@@ -15,3 +15,19 @@ document.querySelectorAll("a[href^='#']").forEach((link) => {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
+
+const statusNode = document.getElementById("rankStatus");
+
+if (statusNode) {
+  const statusPool = [
+    "[RANK: TOP 1%] [LEVEL: 12] [STREAK: 15 DAYS]",
+    "[RANK: TOP 1%] [LEVEL: 12] [ROOMS PWNED: 148]",
+    "[RANK: TOP 1%] [ACTIVE TRACKS: WEB/PRIVESC/FORENSICS]",
+  ];
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % statusPool.length;
+    statusNode.textContent = statusPool[index];
+  }, 3200);
+}
